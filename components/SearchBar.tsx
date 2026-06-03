@@ -1,9 +1,12 @@
 export default function SearchBar() {
+    
+
     return(<>
         <div className="flex-1 max-w-2xl mx-4 hidden md:flex">
                     <div className="flex w-full">
                         <div className="relative flex-1">
                             <input
+                               onChange={}
                                 type="text"
                                 placeholder="Search"
                                 className="w-full px-4 py-2 border border-[#303030] bg-[#1f1f1f] text-[#e5e5e5] placeholder:text-gray-500 rounded-l-full focus:border-[#e50914] focus:ring-2 focus:ring-[#e50914]/40 focus:outline-none"

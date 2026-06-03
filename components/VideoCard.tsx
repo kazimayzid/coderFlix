@@ -1,20 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Video } from "@/app/page";
+import slugify from "@sindresorhus/slugify";
 
 interface VideoCardProps {
   video: Video;
 }
 
 export default function VideoCard({ video }: VideoCardProps) {
-  const videoId = video.videoURL?.split("v=")[1] || "";
-  
   return (
     <Link
-      href={`/video/${videoId}`}
+      href={`/video/${slugify(video.videoTitle, {
+        lowercase: true,
+      })}`}
       className="group block transition-transform hover:scale-[1.01]"
     >
-      
       <div className="relative aspect-video rounded-xl overflow-hidden bg-[#262626] mb-3 ring-1 ring-white/5">
         <Image
           src={video.thumbnailURL}
@@ -24,15 +24,13 @@ export default function VideoCard({ video }: VideoCardProps) {
           className="object-cover group-hover:opacity-90 transition-opacity"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0"></div>
-      
+
         <div className="absolute bottom-2 right-2 bg-black/80 text-white text-xs font-medium px-1.5 py-0.5 rounded">
           {video.duration}
         </div>
       </div>
 
-      
       <div className="flex gap-3">
-        
         <div className="shrink-0">
           <Image
             src={video.channelAvatar}
