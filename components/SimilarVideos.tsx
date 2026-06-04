@@ -6,7 +6,6 @@ export default function SimilarVideos({video}:{video:Video}) {
     if (item.videoURL === video.videoURL) return false;
     return item.categories.some((category) => video.categories.includes(category))
   })
-  console.log(similarVideos);
   
   return (
     <aside className="lg:col-span-4">
