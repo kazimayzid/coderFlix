@@ -11,7 +11,7 @@ export default function SearchBar() {
   function searchQuery(e: React.FormEvent) {
     e.preventDefault();
     if (!searchTerm.trim()) return;
-    router.push(`search/${searchTerm}`);
+    router.push(`/search/${searchTerm}`);
   }
 
   return (
